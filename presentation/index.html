@@ -242,6 +242,99 @@
                 </blockquote>
                 </p>
             </section>
+
+            <section>
+                <h2>Feature branch erstellen</h2>
+                <p>
+                    Um an der Arbeit am Issue zu beginnen, wird nun der Feature Branch erstellt.
+                </p>
+                <p>
+                    Dies kann auf verschiedenen Arten erfolgen:
+                <ul>
+                    <li>Im Jira Issue über <code>Create branch</code></li>
+                    <li>In Bitbucket im View <code>Branches</code> des Projekts</li>
+                    <li>Über die Kommandozeile:
+                    <pre>
+                        <code class="hljs">git checkout -b feature/CMS-42-sth-cool</code>
+                    </pre>
+                    </li>
+                </ul>
+                </p>
+            </section>
+
+            <section>
+                <h2>Feature Branch Name ist wichtig</h2>
+                <p>Der Name des Feature Branches sollte wie folgt aufgebaut sein:
+                    <pre>
+                <code class="hljs">feature/CMS-42-sth-cool</code>
+            </pre>
+                </p>
+            </section>
+
+            <section>
+                <h2>Feature Branch Name ist wichtig</h2>
+                <p>
+                <ul>
+                    <li>Das Prefix <code>feature</code> muss enthalten sein, damit Commits auf dem Branch einen Build
+                        triggern
+                    </li>
+                    <li>Die Issue ID muss enthalten sein, damit die Status-Änderung in Jira funktioniert</li>
+                    <li>nach der Issue ID sollte eine sprechende Bezeichnung über die Aufgabe enthalten sein</li>
+                </ul>
+                </p>
+            </section>
+
+        </section>
+
+        <section>
+            <section>
+                <h1>Implementierung</h1>
+                <img src="assets/implementierung.png"/>
+            </section>
+
+            <section>
+                <h2>Branch auschecken</h2>
+                <pre><code class="hljs">
+                    $ git pull
+                    ...
+                    $ git checkout feature/CMS-42-sth-cool
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Änderungen einchecken</h2>
+                <pre><code class="hljs">
+                    $ git commit -m "CMS-42 - Feature implementiert"
+                    $ git push
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Jenkins Job wird durch push getriggert</h2>
+                <p>
+                    Werden Änderungen auf den Feature Branch gepusht, löst das einen Build
+                    des Jenkins Jobs <code>wimbledon-branches</code> aus.
+                </p>
+                <p>
+                    Das Ergebnis wird an Bitbucket Server zurückgemeldet.
+                </p>
+            </section>
+
+            <section>
+                <h2>Pull Request erstellen</h2>
+                <p>
+                    Sind die Änderungen für das Issue vollständig, so kann der Pull Request
+                    erstellt werden.
+                </p>
+                <p>
+                    Wird über die Kommandozeile gepusht, wird ein Link angezeigt, über den man zur Erstellung
+                    des Pull Requests kommt.
+                </p>
+                <p>
+                    Alternativ kann im Bitbucket-Projekt-View <code>Branches</code> der Pull-Request über
+                    den Button <code>...</code> für den Branch erstellt werden.
+                </p>
+            </section>
         </section>
 
     </div>
