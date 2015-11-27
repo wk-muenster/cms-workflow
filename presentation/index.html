@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>AAV Issue Workflow</title>
+
+    <meta name="description" content="Vorgehensweise innerhalb des CMS Teams zur Umsetzung von AAV Issues">
+    <meta name="author" content="Daniel Hiller">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <div class="slides">
+        <section>
+            <h1>Der AAV Workflow</h1>
+            <h3>Umsetzung von AAV Issues</h3>
+            <p>
+                <small>Erstellt von <a href="mailto:dhiller@wolterskluwer.de">Daniel Hiller</a> / <a
+                        href="http://twitter.com/dhill3r">@dhill3r</a></small>
+            </p>
+        </section>
+
+        <section>
+            <h2>Workflow Übersicht</h2>
+            <p>
+                <img src="assets/dev_workflow.png"/>
+            </p>
+        </section>
+
+        <section>
+
+            <section>
+                <h2>Infrastruktur</h2>
+                <img src="assets/infrastruktur.png"/>
+            </section>
+
+            <section>
+                <h2>Bitbucket und Jira sind verbunden</h2>
+                <img align="right" src="assets/bitbucket_jira.png"/>
+                <p>Ereignisse in Bitbucket verändern den Status der Jira-Issues</p>
+                <p>Voraussetzung: Issue ID muss im Namen des Features Branches vorkommen</p>
+                <p>Beispiel: Erstellen eines Feature Branches verändert den Issue Status auf In Progress</p>
+            </section>
+
+            <section>
+                <h2>Bitbucket und Jira sind verbunden</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <td>Aktion</td>
+                        <td>Statusänderung Issue CMS-42</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            Branch erstellt <br/>
+                            <code>feature/CMS-42-sth-cool</code>
+                        </td>
+                        <td>
+                            "Open" <br/>-> "In Progress"
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pull Request erstellt <br/>
+                            <code>feature/CMS-42-sth-cool</code>
+                        </td>
+                        <td>
+                            "In Progress" <br/>-> "In Review"
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Bitbucket und Jenkins sind verbunden</h2>
+                <img align="right" src="assets/bitbucket_jenkins.png"/>
+                <p>Commits in Bitbucket lösen Builds im Jenkins aus</p>
+                <p>Jenkins Build Status wird an Bitbucket zurückgemeldet</p>
+            </section>
+
+            <section>
+                <h2>Branch Modell im Projekt Wimbledon</h2>
+                <p>
+                    Wimbledon hat drei Haupt-Branches:
+                <table>
+                    <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Zweck</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>master</td>
+                        <td>releases, live bugfixes</td>
+                    </tr>
+                    <tr>
+                        <td>develop</td>
+                        <td>main development line</td>
+                    </tr>
+                    <tr>
+                        <td>staging</td>
+                        <td>pre release demo</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </p>
+            </section>
+
+            <section>
+                <h2>Pull Request, please!</h2>
+                <p>
+                    Die Umsetzung eines Issues wird über einen Pull Request in develop übernommen.
+                </p>
+                <p>
+                    Wird der Pull-Request gemergt, wird die aktuelle Version von develop vom Jenkins gebaut.
+                </p>
+            </section>
+            <section>
+                <h2>Deployment auf cms-dev</h2>
+                <img align="right" src="assets/jenkins_cms-dev.png"/>
+                <p>
+                    War der Build erfolgreich, wird die Version auf cms-dev deployt.
+                </p>
+                <p>
+                    Die Umsetzung des Issues
+                    kann über
+                    <a href="http://wimbledon-dev.wkd.wolterskluwer.de">wimbledon-dev</a>
+                    getestet werden.
+
+                </p>
+            </section>
+        </section>
+
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    });
+
+</script>
+
+</body>
+</html>
