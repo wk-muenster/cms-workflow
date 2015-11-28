@@ -318,7 +318,7 @@
                 <p>
                     Das Ergebnis wird an Bitbucket Server zurückgemeldet.
                 </p>
-                <img src="assets/build_feedback.png" />
+                <img src="assets/build_feedback.png"/>
             </section>
 
             <section>
@@ -339,10 +339,149 @@
                     Alternativ kann im Bitbucket-Projekt-View <code>Branches</code> der Pull-Request über
                     den Button <code>...</code> für den Branch erstellt werden.
                 </p>
-                <img src="assets/create_pr.png" />
+                <img src="assets/create_pr.png"/>
+            </section>
+
+            <section>
+                <h2>Pull Request erstellen</h2>
+                <p>
+                    Der Pull Request sollte eine entsprechende Beschreibung der Änderungen enthalten.
+                </p>
+            </section>
+
+            <section>
+                <h2>Reviewer zum Pull Request hinzufügen</h2>
+                <p>
+                    Die Reviewer müssen Entwickler sein. Sie sollten bestenfalls mit dem Projekt bekannt sein,
+                    damit sie die Auswirkungen der Änderungen besser einschätzen können.
+                </p>
+                <img src="assets/add_reviewers.png"/>
+            </section>
+
+            <section>
+                <h2>Erstellen des Pull Requests ändert den Issue Status</h2>
+                <p>
+                    Das Erstellen des Pull-Requests ändert den Issue Status auf <code>In Review</code>.
+                </p>
+                <p>
+                    Dadurch wird klar, dass die für das Feature nötigen Änderungen abgeschlossen sind und
+                    sich weitere Entwickler den Quellcode der Änderungen ansehen.
+                </p>
             </section>
         </section>
 
+        <section>
+            <section>
+                <h1>Review</h1>
+                <img src="assets/review.png"/>
+            </section>
+
+            <section>
+                <h2>Ziele von Code Reviews</h2>
+                <p>
+                    Code Reviews haben mehrere Ziele:
+                <ul>
+                    <li>Verbesserung der Code Qualität</li>
+                    <li>Kollaboratives Lernen</li>
+                    <li>Das Entdecken von Fehlern und Design Problemen im Code durch das Vier Augen Prinzip, z.B.:
+                        <ul>
+                            <li>Nicht geschlossene Ressourcen (try-with-resources)</li>
+                            <li>Thread-Sicherheit</li>
+                            <li>...</li>
+                        </ul>
+                    </li>
+                </ul>
+                </p>
+            </section>
+
+            <section>
+                <h2>Ablauf eines Code Reviews</h2>
+                <p>
+                    Die Reviewer werden via E-Mail von Bitbucket Server darüber benachrichtigt, dass sie sich einen
+                    Pull-Request ansehen sollen.
+                </p>
+                <p>
+                    Sie müssen dann den Code auf
+                    Lesbarkeit,
+                    Fehler und
+                    Designprobleme prüfen.
+                </p>
+                <p>
+                    Diese Dinge können sie dem Autor im Pull-Request mitteilen.
+                </p>
+            </section>
+
+            <section>
+                <h2>Review Feedback</h2>
+                <p>
+                    <b>Wichtig!</b>
+                </p>
+                <p>Das Feedback der Reviewer muss immer konstruktiv und niemals verletzend sein!</p>
+            </section>
+
+            <section>
+                <h2>Möglichkeiten für Feedback</h2>
+                <p>
+                    Die Reviewer haben folgende Möglichkeiten, Ihr Feedback abzugeben:
+                <ul>
+                    <li>Kommentare schreiben</li>
+                    <li>Aufgaben erstellen</li>
+                </ul>
+                </p>
+                <p>
+                    Wird keine Einigung erzielt, kann ein Reviewer der Review per <code>Decline</code> ablehnen!
+                </p>
+            </section>
+
+            <section>
+                <h2>Review Tasks</h2>
+                <p>
+                    Der Reviewer kann für den Autor Tasks anlegen, die dieser noch abarbeiten muss.
+                </p>
+                <p>
+                    Das Abhaken aller Tasks ist die Voraussetzung für die Möglichkeit zum Merge des Pull Requests.
+                </p>
+                <img src="assets/review_tasks.png" />
+            </section>
+
+            <section>
+                <h2>Review Approval</h2>
+                <p>
+                    Ist der Code nach den angesetzten Kriterien in Ordnung, so kann der Reviewer den Pull-Request
+                    per <code>Approve</code> akzeptieren.
+                </p>
+                <p>
+                    Er teilt damit mit, dass der Code im Review die geprüften
+                    Kriterien erfüllt.
+                </p>
+                <p>
+                    Mindestens ein Approval ist nötig, damit der Pull Request gemergt werden kann!
+                </p>
+            </section>
+
+            <section>
+                <h2>Ohne erfolgreichen Build kein Merge</h2>
+                <p>
+                    Ein erfolgreicher Jenkins-Build des letzten Commits im Feature Branch ist erforderlich,
+                    damit der Pull Request gemergt werden kann.
+                </p>
+                <img src="assets/merge_nicht_moeglich.png" />
+            </section>
+
+            <section>
+                <h2>Voraussetzungen für Merge</h2>
+                <p>
+                    Damit der Pull-Request gemergt werden kann, müssen
+                <ul>
+                    <li>mindestens ein Reviewer <code>Approved</code> haben</li>
+                    <li>Alle Aufgaben als erledigt markiert sein</li>
+                    <li>Der letzte Jenkins-Build erfolgreich sein</li>
+                </ul>
+                </p>
+                <img src="assets/merge_moeglich.png" />
+            </section>
+
+        </section>
 
 
     </div>
