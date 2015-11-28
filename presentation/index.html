@@ -50,10 +50,28 @@
         </section>
 
         <section>
-            <h2>Workflow Übersicht</h2>
-            <p>
+
+            <section>
+                <h2>Übersicht</h2>
+            </section>
+
+            <section>
                 <img src="assets/dev_workflow.png"/>
-            </p>
+            </section>
+
+            <section>
+                <h1>Die Phasen des Issue Workflows</h1>
+                <p>
+                <ul>
+                    <li>Zuweisung</li>
+                    <li>Implementierung</li>
+                    <li>Review</li>
+                    <li>Entwickler Test</li>
+                    <li>Abnahme durch PM</li>
+                </ul>
+                </p>
+            </section>
+
         </section>
 
         <section>
@@ -147,6 +165,7 @@
                     Wird der Pull-Request gemergt, wird die aktuelle Version von develop vom Jenkins gebaut.
                 </p>
             </section>
+
             <section>
                 <h2>Deployment auf cms-dev</h2>
                 <img align="right" src="assets/jenkins_cms-dev.png"/>
@@ -160,6 +179,12 @@
                     getestet werden.
 
                 </p>
+            </section>
+
+            <section>
+                <h1>Infrastruktur</h1>
+                <h2>Fragen?</h2>
+                <img src="assets/questions.jpg"/>
             </section>
         </section>
 
@@ -284,6 +309,12 @@
                 </p>
             </section>
 
+            <section>
+                <h1>Zuweisen von Issues</h1>
+                <h2>Fragen?</h2>
+                <img src="assets/questions.jpg"/>
+            </section>
+
         </section>
 
         <section>
@@ -368,6 +399,13 @@
                     sich weitere Entwickler den Quellcode der Änderungen ansehen.
                 </p>
             </section>
+
+            <section>
+                <h1>Implementierung</h1>
+                <h2>Fragen?</h2>
+                <img src="assets/questions.jpg"/>
+            </section>
+
         </section>
 
         <section>
@@ -492,6 +530,12 @@
                 </p>
             </section>
 
+            <section>
+                <h1>Review</h1>
+                <h2>Fragen?</h2>
+                <img src="assets/questions.jpg"/>
+            </section>
+
         </section>
 
         <section>
@@ -536,8 +580,60 @@
                 </p>
             </section>
 
+            <section>
+                <h1>Entwickler Test</h1>
+                <h2>Fragen?</h2>
+                <img src="assets/questions.jpg"/>
+            </section>
+
         </section>
 
+        <section>
+            <section>
+                <h1>Abnahme</h1>
+                <img src="assets/approval.png"/>
+            </section>
+
+            <section>
+                <h2>Abnahme durch den PM</h2>
+                <p>
+                    Beim Ändern des Issue-Status auf <code>Approval Required</code> wurde dem PM
+                    das Issue automatisch zugewiesen.
+                </p>
+                <p>
+                    Der PM prüft nun auf der
+                    <a href="http://wimbledon-dev.wkd.wolterskluwer.de">Dev-Instanz</a>,
+                    ob das Issue der Beschreibung nach umgesetzt wurde. In diesem Fall setzt er
+                    per <code>Approve</code> das Issue auf den Status <code>Resolved</code>.
+                </p>
+            </section>
+
+            <section>
+                <h2>Abnahme durch den PM</h2>
+                <p>
+                    Wurde das Issue nicht wie beschrieben umgesetzt, so setzt der PM per
+                    <code>Decline</code> das Issue wieder auf <code>In Progress</code>.
+                </p>
+                <p>
+                    Während dieses Vorgangs beschreibt er mit Kommentaren am Issue, was
+                    nicht so umgesetzt wurde, wie beschrieben.
+                </p>
+                <p>
+                    Danach beginnt die Implementierung erneut.
+                </p>
+            </section>
+
+            <section>
+                <h1>Abnahme durch den PM</h1>
+                <h2>Fragen?</h2>
+                <img src="assets/questions.jpg"/>
+            </section>
+
+        </section>
+
+        <section>
+            <img height="50%" width="50%" src="assets/IKEA-Man-Minion.jpg" />
+        </section>
 
     </div>
 
