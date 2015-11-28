@@ -441,7 +441,7 @@
                 <p>
                     Das Abhaken aller Tasks ist die Voraussetzung für die Möglichkeit zum Merge des Pull Requests.
                 </p>
-                <img src="assets/review_tasks.png" />
+                <img src="assets/review_tasks.png"/>
             </section>
 
             <section>
@@ -465,7 +465,7 @@
                     Ein erfolgreicher Jenkins-Build des letzten Commits im Feature Branch ist erforderlich,
                     damit der Pull Request gemergt werden kann.
                 </p>
-                <img src="assets/merge_nicht_moeglich.png" />
+                <img src="assets/merge_nicht_moeglich.png"/>
             </section>
 
             <section>
@@ -478,7 +478,62 @@
                     <li>Der letzte Jenkins-Build erfolgreich sein</li>
                 </ul>
                 </p>
-                <img src="assets/merge_moeglich.png" />
+                <img src="assets/merge_moeglich.png"/>
+            </section>
+
+            <section>
+                <h2>Deployment auf cms-dev</h2>
+                <p>
+                    Wurde der Merge durchgeführt, so wird nun automatisch der Jenkins-Job <code>wimbledon-develop</code>
+                    ausgelöst.
+                </p>
+                <p>
+                    Traten dort keine Fehler auf, so wird die neu erstellte Version auf <code>cms-dev</code> deployt.
+                </p>
+            </section>
+
+        </section>
+
+        <section>
+            <section>
+                <h1>Entwickler Test</h1>
+                <img src="assets/dev_test.png"/>
+            </section>
+
+            <section>
+                <h2>Issue Status auf Test ändern</h2>
+                <p>
+                    Der Issue Status muss vom Entwickler vor Beginn des Tests manuell auf <code>Test</code> gestellt
+                    werden.
+                </p>
+                <p>
+                    Dies ist ein manueller Schritt, da beim Merge ja Probleme aufgetreten sein könnten, die vorher noch
+                    behoben werden mussten. Stünde nun das Issue bereits auf Test, wäre der Status falsch.
+                </p>
+            </section>
+
+            <section>
+                <h2>Durchführung des Tests</h2>
+                <p>
+                    Der Entwickler prüft nun auf der
+                    <a href="http://wimbledon-dev.wkd.wolterskluwer.de">Dev-Instanz</a>,
+                    ob das Issue der Beschreibung nach umgesetzt wurde.
+                </p>
+                <p>
+                    Entspricht die Umsetzung nicht der Beschreibung, so beginnt die Implementierung erneut.
+                    Dies geschieht so oft, bis das Issue umgesetzt wurde.
+                </p>
+            </section>
+
+            <section>
+                <h2>Durchführung des Tests</h2>
+                <p>
+                    Entspricht die Umsetzung der Beschreibung im Issue, so kann der Entwickler den
+                    Issue-Status per <code>Request Approval</code> auf <code>Approval Required</code> setzen.
+                </p>
+                <p>
+                    Das Issue wird dann dem PM automatisch zugewiesen.
+                </p>
             </section>
 
         </section>
